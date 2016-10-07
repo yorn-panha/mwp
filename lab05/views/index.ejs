@@ -1,0 +1,26 @@
+<!-- views/pages/about.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h2>Inventors</h2>
+<ul>
+   
+        <table>
+            <tr>
+                <th>First</th>
+                <th>Last</th>
+                <th>Year</th>
+            </tr>
+             <% inventors.forEach(function(inventor) { %>
+            <tr>
+                <td><%= inventor.first %></td>
+                <td><%= inventor.last %></td>
+                <td><%= inventor.year %></td>
+            </tr>
+            <% }); %>
+        </table>
+    
+</ul>
+</body>
+</html>
