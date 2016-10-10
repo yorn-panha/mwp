@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>Contact Us</h1>
+
     <form method="post" action="/contactus">
     	Fullname: <input type = "text" name = "fullname"> </br>
     	Type: 
@@ -15,5 +16,8 @@
       <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>" />
     	<input type = "submit" id="submit" value = "submit">
     </form>
+    <% if(typeof errmsg != "undefined"){ %>
+      <p><%= errmsg %></p>
+      <% } %>
   </body>
 </html>

@@ -2,12 +2,14 @@ var express = require('express');
 var router = express.Router();
 var fs = require("fs");
 var filename = "file.txt";
+
 // var app = express();
 // var validator = require("express-validator");
 // var bodyParser = require("body-parser");
 
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(validator());
+
 router.route("/")
 		.get(function(req, res, next){
 			res.render("contactus");
@@ -17,7 +19,10 @@ router.route("/")
 			req.assert("fullname", "fullname is required").notEmpty();
 			req.assert("message", "message is required").notEmpty();
 			var errors = req.validationErrors();
-			if(errors) res.send("Fields cannot be empty");
+			if(errors) {
+				res.render("contactus", {errmsg: "Fileds cannot be empty"});
+				return next();
+			}
 
 			var fullname = req.body.fullname;
 			var message = req.body.message;
