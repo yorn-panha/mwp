@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Us</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Contact Us</h1>
+    <form method="post" action="/contactus">
+    	Fullname: <input type = "text" name = "fullname"> </br>
+    	Type: 
+    		<input type = "radio" name = "type" value = "suggesstion" checked>Suggestion  
+    		<input type = "radio" name = "type" value = "conplaint">conplaint</br>  
+    	Message: <input type = "text" name = "message"> </br>
+      <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>" />
+    	<input type = "submit" id="submit" value = "submit">
+    </form>
+  </body>
+</html>
