@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(window).load(function(){
+        var search = document.getElementById("search");
+        //console.log(search);
+        navigator.geolocation.getCurrentPosition(success, fail);
+        function success(position){
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            console.log(lat);
+            console.log(long);
+            search.innerHTML += 
+            "<input type = 'hidden' name = 'lat' value = '" + lat + "'/>"
+            + "<input type = 'hidden' name = 'long' value = '" + long + "'/>"
+        }
+        function fail(msg) {
+            console.log(msg.code + ", " + msg.message);
+        }
+    });
+    </script>
+    <title>Location</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Location</h1>
+    <p>Welcome to Location</p>
+    <form action = "/search" method = "post" id = "search">
+    	<label>Category</label>
+    	<select name = "category">
+    		<option value = "school"> School</option>
+    		<option value = "restaurant">Restaurant</option>
+    		<option value = "market">Market</option>
+    	</select><br/>
+    	<input type = "submit" value = "Search" />
+    </form>
+    <% if(typeof results != "undefined"){%>
+      <% results.forEach(result=>{ %>
+        <br>
+        <h3>Name: <%= result.name %></h3>
+        <p>Category: <%= result.category %></p>
+        <p>Location: <%= result.point %></p>
+      <% }) %>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Location</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Location</h1>
+    <p>Welcome to Location</p>
+    <form action = "/location" method = "post">
+    	<label>Name</label>
+    	<input type = "text" name = "name" /><br/>
+    	<label>Category</label>
+    	<select name = "category">
+    		<option value = "school"> School</option>
+    		<option value = "restaurant">Restaurant</option>
+    		<option value = "market">Market</option>
+    	</select><br/>
+    	<label>Lat</label>
+    	<input type = "text" name = "lat" />
+    	<label>Long</label>
+    	<input type = "text" name = "long" /><br/>
+    	<input type = "submit" value = "Add" />
+    </form>
+  </body>
+</html>
